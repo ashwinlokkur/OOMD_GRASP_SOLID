@@ -9,6 +9,7 @@ public class Doctor extends Person {
 		this.sp = sp;
 		this.id += new Random().nextInt(9999) + new Random().nextInt(9999);
 		this.status = "active";
+		this.minExperience = 5;
 	}
 
 	public static Person[] removeDoctor(Person[] doctorlist, int id) {
@@ -20,4 +21,28 @@ public class Doctor extends Person {
 		}
 		return doctorlist;
 	}
+
+	public int getExperience() {
+		return this.minExperience;
+	}
+
+	public boolean checkAgeValidity() {
+		if((this.age - this.minExperience)<24){
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+
+	public boolean checkStatus() {
+		if(this.status.equals("active") == true) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+
 }
