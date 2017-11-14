@@ -76,7 +76,7 @@ public class Init {
 
 				case 7:
 					for(int i = 0; i  < dcount; i++)
-						System.out.println(doctorlist[i].id + "  " + doctorlist[i].name + "  " + doctorlist[i].age + doctorlist[i].sp + "  " + doctorlist[i].status);
+						System.out.println(doctorlist[i].id + "  " + doctorlist[i].name + "  " + doctorlist[i].age + "  " + doctorlist[i].sp + "  " + doctorlist[i].status + "  " + doctorlist[i].getExperience());
 					Init.dispMenu();
 					break;				
 
