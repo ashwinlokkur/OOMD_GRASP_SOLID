@@ -6,7 +6,7 @@ public class Init {
 
 		Init.dispMenu();
 		int option, age, id, pid, did;
-		String name, sp, pname, dname;
+		String name, sp, pname, dname, temp="";
 		Person p;
 		int m = 9;
 		
@@ -22,17 +22,28 @@ public class Init {
 			switch(option) {
 				
 				case 1: 
+					/*
 					System.out.println("Enter name: ");
 					name = sc.next();
 					System.out.println("Enter age: ");
 					age = sc.nextInt();
 					p = PersonFactory.createPerson("patient", name, age);
+					//p = doctor_gui.start_gui();
 					patientlist[ pcount++ ] = p;
 					System.out.println(patientlist.length);
 					System.out.println("Created new patient: " + p.id);
 					Init.dispMenu();
 					break;
-				
+					*/
+					//System.out.println("Enter name: ");
+					//name = sc.next();
+					//System.out.println("Enter age: ");
+					//age = sc.nextInt();
+					p = patient_gui.start_gui();
+					patientlist[ pcount++ ] = p;
+					System.out.println("Created new patient: " + p.id);
+					Init.dispMenu();
+					break;
 				case 2:
 					System.out.println("Enter patient id: ");
 					id = sc.nextInt();
@@ -41,6 +52,7 @@ public class Init {
 					break;
 
 				case 3:
+					/*
 					System.out.println("Enter name: ");
 					name = sc.next();
 					System.out.println("Enter age: ");
@@ -51,6 +63,18 @@ public class Init {
 					doctorlist[ dcount++ ] = p;
 					System.out.println("DCOUNT + " + dcount);
 					System.out.println("Created new doctor: " + p.id);
+					Init.dispMenu();
+					break;
+					*/
+					//System.out.println("Enter name: ");
+					//name = sc.next();
+					//System.out.println("Enter age: ");
+					//age = sc.nextInt();
+					//p = PersonFactory.createPerson("patient", name, age);
+					p = doctor_gui.start_gui();
+					doctorlist[ dcount++ ] = p;
+					System.out.println("DCOUNT + " + dcount);
+					//System.out.println("Created new doctor: " + p.id);
 					Init.dispMenu();
 					break;
 				
@@ -71,14 +95,24 @@ public class Init {
 					break;
 				
 				case 6:
+					temp="";
 					for(int i = 0; i  < pcount; i++)
-						System.out.println(patientlist[i].id + "  " + patientlist[i].name + "  " + patientlist[i].age + "  " + patientlist[i].status);
+					{
+						temp=temp + "\n" + patientlist[i].id + "  " + patientlist[i].name + "  " + patientlist[i].age + "  " + patientlist[i].status;
+						//System.out.println(patientlist[i].id + "  " + patientlist[i].name + "  " + patientlist[i].age + "  " + patientlist[i].status);
+					}
+					common_output.start_gui("Patient List", temp);
 					Init.dispMenu();
 					break;
 
 				case 7:
+					temp="";
 					for(int i = 0; i  < dcount; i++)
-						System.out.println(doctorlist[i].id + "  " + doctorlist[i].name + "  " + doctorlist[i].age + "  " + doctorlist[i].sp + "  " + doctorlist[i].status + "  " + doctorlist[i].getExperience());
+					{
+						temp = temp + "\n" + doctorlist[i].id + "  " + doctorlist[i].name + "  " + doctorlist[i].age + "  " + doctorlist[i].sp + "  " + doctorlist[i].status + "  " + doctorlist[i].getExperience();
+						//System.out.println(doctorlist[i].id + "  " + doctorlist[i].name + "  " + doctorlist[i].age + "  " + doctorlist[i].sp + "  " + doctorlist[i].status + "  " + doctorlist[i].getExperience());
+					}
+					common_output.start_gui("Doctor List", temp);
 					Init.dispMenu();
 					break;	
 
