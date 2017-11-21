@@ -6,9 +6,10 @@ public class Init {
 
 		Init.dispMenu();
 		int option, age, id, pid, did;
-		String name, sp;
+		String name, sp, pname, dname;
 		Person p;
-
+		int m = 9;
+		
 		Person[] patientlist = new Patient[500];
 		Person[] doctorlist = new Doctor[500];
 		int pcount = 0, dcount = 0;
@@ -61,10 +62,11 @@ public class Init {
 					break;
 				
 				case 5:
-					System.out.println("Enter patient id: ");
-					pid = sc.nextInt();
-					System.out.println("Enter doctor id: ");
-					did = sc.nextInt();
+					System.out.println("Enter doctor name: ");
+					dname = sc.next();
+					System.out.println("Enter patient name: ");
+					pname = sc.next();
+					addPatientsToDoctor.addPatientsToDoctor(pname,dname);
 					Init.dispMenu();
 					break;
 				
@@ -78,8 +80,12 @@ public class Init {
 					for(int i = 0; i  < dcount; i++)
 						System.out.println(doctorlist[i].id + "  " + doctorlist[i].name + "  " + doctorlist[i].age + "  " + doctorlist[i].sp + "  " + doctorlist[i].status + "  " + doctorlist[i].getExperience());
 					Init.dispMenu();
-					break;				
+					break;	
 
+				case 8:
+					addPatientsToDoctor.doctor_patients();	
+					break;
+					
 				case 9:
 					break;
 				
@@ -102,6 +108,8 @@ public class Init {
 		System.out.println("5. Allot a doctor to an active patient");
 		System.out.println("6. View patients");
 		System.out.println("7. View doctors");
+		//System.out.println("8. find the doctor allotments");
+		System.out.println("8. See allotment");
 		System.out.println("9. Exit");
 		System.out.println("#########################################");
 	}
